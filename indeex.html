@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="./js/script.js"></script>
+</head>
+<body>
+    <title>Registro de Usuarios</title>
+    <img src="./cs/images/bg_main.jpg" >
+    <div class="container">
+        <div class="progress">
+            <div id="step1Circle" class="circle">1</div>
+            <div id="step2Circle" class="circle">2</div>
+            <div id="step3Circle" class="circle">3</div>
+            <div id="step4Circle" class="circle">4</div>
+            <br>
+            <br>
+            <br>
+        </div>
+        <div id="steps">
+            <div class="step active" id="step1">
+                <h3 id="Info" style="color: rgb(248, 236, 166);">Información Principal</h3>
+                <label for="nombres"> Nombres:</label>
+                <input type="text" id="nombres" required>
+                <label for="apellidoPaterno">Apellido Paterno:</label>
+                <input type="text" id="apellidoPaterno" required>
+                <label for="apellidoMaterno">Apellido Materno:</label>
+                <input type="text" id="apellidoMaterno" required>
+                <button onclick="nextStep(1)">Siguiente</button>
+            </div>
+            <div class="step" id="step2">
+                <h3>Nacionalidad</h3>
+                <label for="nacionalidad">Nacionalidad:</label>
+                <br>
+                <input type="text" id="nacionalidad" autocomplete="off" oninput="filterCountries(this.value)" required>
+                <div id="countryList" class="autocomplete-items"></div>
+                <select  id="sexo">
+             <option value="-1" disabled selected>Escoge una opción</option>
+             <option value="" class="0">Masculino</option>
+             <option value="" class="1">Femenino</option>
+             <option value="" class="2">Sin especificar</option>
+                </select>
+                <br>
+                <br>
+                <div class="label">Fecha de Nacimiento:</div>
+                <input type="date" id="FechaNac" max="2010-12-31" value="2010-02-03">
+                <br>
+                <br>
+                <button onclick="nextStep(2)">Siguiente</button>
+                <button onclick="prevStep(2)">Atrás</button>           
+             </div>
+            <div class="step" id="step3">
+                <h3>Contacto</h3>
+                <label for="contacto">Teléfono (11 dígitos):</label>
+            <input type="tel" id="contacto" maxlength="11" required>
+                <button onclick="nextStep(3)">Siguiente</button>
+                <button onclick="prevStep(3)">Atrás</button>
+            </div>
+            <div class="step" id="step4">
+                <h3>Usuario</h3>
+                <label for="usuario">Nombre de Usuario:</label>
+                <input type="text" id="usuario" placeholder="Nombre de Usuario" required>
+                <label for="Contraseña">Contraseña:</label>
+                <input type="password" id="contra" placeholder="Contraseña" required>
+                <button onclick="completeRegistration()">Completar Registro</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
